@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ToDoList—最简单的待办事项列表</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/todolist.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+    </header>
+    <section>
+        <h2>正在进行 <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2022 todolist.cn
+    </footer>
+
+    <script>
+        // 创建数组对象 存放目标以及完成状态
+        var todolist = [{
+            title: "第一个目标",
+            done: false
+        }, {
+            title: "第二个目标",
+            done: false
+        }];
+
+        // 将数组对象上传到浏览器本地中 localStorage.setItem(key, value);
+        // 本地存储只能存放字符串类型，存储时因该先进性一次类型转换 JSON.stringify(); 将数据类型转换为字符串
+        localStorage.setItem("todo", JSON.stringify(todolist));
+        // 当获取时也需要进行一次数据类型转换，否则获取的就是字符串类型的值
+        // console.log(typeof localStorage.getItem("todo"));
+        // 获取本地存储数据，将字符串类型转换回数组对象
+        // var data = JSON.parse(localStorage.getItem("todolist"));
+        // console.log(typeof data);
+
+    </script>
+
+</body>
+
+</html>
